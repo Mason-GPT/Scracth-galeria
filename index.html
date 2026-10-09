@@ -123,6 +123,23 @@
     @media (max-width:760px) { .page-hero { margin:24px auto 40px; padding:clamp(24px,6vw,38px); border-radius:22px; } .hero.page-hero { grid-template-columns:1fr; gap:30px; } .page-hero h1 { font-size:clamp(2.5rem,11vw,4.4rem); } .section-head { display:grid; gap:12px; } .cards { grid-template-columns:repeat(2,minmax(0,1fr)); } .order-layout { grid-template-columns:1fr; } .gallery-card { grid-template-columns:1fr; } .gallery-card img { min-height:240px; max-height:380px; } }
     @media (max-width:560px) { .cards { grid-template-columns:1fr; } .page-hero { padding:24px 20px; } .page-hero::before { right:-250px; top:-220px; } .gallery-card img { min-height:220px; } .faq-section { padding:18px 14px; } .faq-list details { padding:0 13px; } .site-header { gap:12px; } }
     @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .card,.gallery-card,.button { transition:none !important; } }
+    .gallery-meta { display:flex; flex-wrap:wrap; gap:9px; margin-top:20px; }
+    .gallery-meta span,.gallery-kind { display:inline-flex; align-items:center; width:max-content; padding:7px 11px; border:1px solid rgba(85,174,242,.24); border-radius:999px; background:rgba(85,174,242,.08); color:#a9d8fa; font-size:.78rem; font-weight:750; }
+    .gallery-section { margin-top:clamp(42px,6vw,70px); }
+    .gallery-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; align-items:stretch; }
+    .gallery-grid-featured { grid-template-columns:minmax(0,1fr); }
+    .gallery-card { display:flex; flex-direction:column; min-width:0; height:100%; }
+    .gallery-card figure { display:flex; flex-direction:column; min-width:0; margin:0; }
+    .gallery-card img { display:block; width:100%; height:auto; min-height:0; max-height:none; aspect-ratio:4/3; object-fit:cover; background:#17191b; }
+    .gallery-copy { display:flex; flex-direction:column; align-items:flex-start; justify-content:flex-start; gap:10px; padding:24px; }
+    .gallery-copy h3 { margin:0; font-size:1.3rem; letter-spacing:-.025em; }
+    .gallery-copy p { margin:0; color:var(--muted); line-height:1.7; }
+    .gallery-grid-featured .gallery-card { display:grid; grid-template-columns:1.08fr .92fr; }
+    .gallery-grid-featured .gallery-card figure { min-height:100%; }
+    .gallery-grid-featured .gallery-card img { height:100%; min-height:300px; aspect-ratio:auto; }
+    .image-note { overflow-wrap:anywhere; }
+    @media (max-width:760px) { .gallery-grid { grid-template-columns:1fr; } .gallery-grid-featured .gallery-card { grid-template-columns:1fr; } .gallery-grid-featured .gallery-card img { min-height:240px; height:auto; aspect-ratio:4/3; } }
+    @media (prefers-reduced-motion:reduce) { .gallery-card { transition:none !important; } }
   </style>
 </head>
 <body>
@@ -146,7 +163,7 @@
       </nav>
       <p class="drawer-label">En esta página</p>
       <nav class="drawer-links drawer-local" aria-label="Secciones de la galería">
-        <a href="#mundanas">Cosas mundanas</a><a href="#utiles">Cosas útiles</a>
+        <a href="#mundanas">Cosas mundanas</a><a href="#utiles">Cosas útiles</a><a href="#impresion">Impresión en marcha</a>
       </nav>
     </div>
   </aside>
@@ -155,43 +172,79 @@
       <p class="eyebrow">Ideas para impresión 3D</p>
       <h1>Galería 3DScracth</h1>
       <p class="intro">Una colección de ejemplos para imaginar qué tipos de objetos se pueden diseñar e imprimir en 3D, desde detalles cotidianos hasta piezas prácticas.</p>
-      <p class="notice"><strong>Proyecto escolar:</strong> 3DScracth y sus servicios son ficticios; no es un negocio real. Las fotos muestran impresiones reales y son ejemplos, no productos disponibles.</p>
+      <p class="notice"><strong>Proyecto escolar:</strong> 3DScracth y sus servicios son ficticios; no es un negocio real. Las fotos son ejemplos, no productos disponibles; cada crédito indica la fuente y la licencia.</p>
+      <div class="gallery-meta" aria-label="Resumen de la galería"><span>4 fotos reales</span><span>3 temas</span><span>Fuentes y licencias visibles</span></div>
     </header>
 
     <section class="gallery-section" id="mundanas" aria-labelledby="mundanas-title">
       <div class="section-head">
         <h2 id="mundanas-title">Cosas mundanas</h2>
-        <p>Objetos curiosos y decorativos: impresiones que se pueden mirar, coleccionar o usar como adorno.</p>
+        <p>Figuras y piezas curiosas para mirar, coleccionar o imaginar en distintos colores y formas.</p>
       </div>
-      <article class="gallery-card">
-        <figure style="margin:0">
-          <img src="./objetos-mundanos-real.jpg" alt="Figura de cangrejo impresa en 3D, fotografiada sobre una mesa">
-          <figcaption class="image-note">Foto: Creative Tools (Halmstad, Suecia), licencia <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>, vía <a href="https://commons.wikimedia.org/wiki/File:3D_Printshow_2014_London_-_Formlabs_Form_1_SLA_3D_printer_crab_3D_print_(14964345437).jpg">Wikimedia Commons</a>.</figcaption>
-        </figure>
-        <div class="gallery-copy">
-          <h3>Figura decorativa impresa en 3D</h3>
-          <p>Una pieza curiosa que muestra otra posibilidad de la impresión 3D: crear figuras para decorar o coleccionar.</p>
-          <ul class="object-list"><li>Figura de cangrejo</li></ul>
-        </div>
-      </article>
+      <div class="gallery-grid">
+        <article class="gallery-card">
+          <figure>
+            <img src="./objetos-mundanos-real.jpg" alt="Figura de cangrejo impresa en 3D, fotografiada sobre una mesa" loading="lazy" decoding="async">
+            <figcaption class="image-note">Foto: Creative Tools (Halmstad, Suecia), licencia <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>, vía <a href="https://commons.wikimedia.org/wiki/File:3D_Printshow_2014_London_-_Formlabs_Form_1_SLA_3D_printer_crab_3D_print_(14964345437).jpg">Wikimedia Commons</a>.</figcaption>
+          </figure>
+          <div class="gallery-copy">
+            <span class="gallery-kind">Decorativo</span>
+            <h3>Figura de cangrejo</h3>
+            <p>Una figura pequeña que muestra cómo la impresión 3D también puede crear objetos curiosos y decorativos.</p>
+          </div>
+        </article>
+        <article class="gallery-card">
+          <figure>
+            <img src="./objetos-varios.jpg" alt="Varias piezas impresas en 3D, carretes de filamento y modelos sobre una mesa" loading="lazy" decoding="async" width="1599" height="1599">
+            <figcaption class="image-note">Foto: Vitor.Ger, sin modificaciones, licencia <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">CC BY-SA 4.0</a>, vía <a href="https://commons.wikimedia.org/wiki/File:3DPrinted_Objects.jpg">Wikimedia Commons</a>.</figcaption>
+          </figure>
+          <div class="gallery-copy">
+            <span class="gallery-kind">Varios ejemplos</span>
+            <h3>Una mesa llena de ideas</h3>
+            <p>La foto reúne piezas de distintas formas, además de filamento y modelos con diferentes acabados.</p>
+          </div>
+        </article>
+      </div>
     </section>
 
     <section class="gallery-section" id="utiles" aria-labelledby="utiles-title">
       <div class="section-head">
         <h2 id="utiles-title">Cosas útiles</h2>
-        <p>Accesorios funcionales impresos en 3D, como soportes y piezas de organización.</p>
+        <p>Accesorios funcionales que ayudan a organizar materiales y acompañan el trabajo de impresión.</p>
       </div>
-      <article class="gallery-card">
-        <figure style="margin:0">
-          <img src="./objetos-utiles-real.jpg" alt="Soporte impreso en 3D que sostiene un rollo de filamento">
-          <figcaption class="image-note">Foto: Creative Tools, licencia <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>, vía <a href="https://commons.wikimedia.org/wiki/File:Universal_stand-alone_filament_spool_holder_(Fully_3D-printable)_v03.jpg">Wikimedia Commons</a>.</figcaption>
-        </figure>
-        <div class="gallery-copy">
-          <h3>Soporte para rollo de filamento</h3>
-          <p>Una pieza funcional que sostiene el rollo y ayuda a guiar el filamento mientras se imprime.</p>
-          <ul class="object-list"><li>Accesorio para impresión 3D</li></ul>
-        </div>
-      </article>
+      <div class="gallery-grid gallery-grid-featured">
+        <article class="gallery-card">
+          <figure>
+            <img src="./objetos-utiles-real.jpg" alt="Soporte impreso en 3D que sostiene un rollo de filamento" loading="lazy" decoding="async">
+            <figcaption class="image-note">Foto: Creative Tools, licencia <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>, vía <a href="https://commons.wikimedia.org/wiki/File:Universal_stand-alone_filament_spool_holder_(Fully_3D-printable)_v03.jpg">Wikimedia Commons</a>.</figcaption>
+          </figure>
+          <div class="gallery-copy">
+            <span class="gallery-kind">Accesorio</span>
+            <h3>Soporte para rollo de filamento</h3>
+            <p>Una pieza funcional que sostiene el rollo y ayuda a guiar el filamento mientras se imprime.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="gallery-section" id="impresion" aria-labelledby="impresion-title">
+      <div class="section-head">
+        <h2 id="impresion-title">Impresión en marcha</h2>
+        <p>Una mirada al proceso: la pieza se forma capa por capa sobre la plataforma de la impresora.</p>
+      </div>
+      <div class="gallery-grid gallery-grid-featured">
+        <article class="gallery-card">
+          <figure>
+            <img src="./objeto-impreso.jpg" alt="Impresora 3D fabricando dos pequeñas piezas rojas sobre la plataforma" loading="lazy" decoding="async" width="3024" height="3024">
+            <figcaption class="image-note">Fuente: Pxhere, licencia <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.en">CC0 1.0</a>, vía <a href="https://commons.wikimedia.org/wiki/File:Table-glass-machine-toy-making-printer-605269-pxhere.jpg">Wikimedia Commons</a>.</figcaption>
+          </figure>
+          <div class="gallery-copy">
+            <span class="gallery-kind">Proceso</span>
+            <h3>Una pieza toma forma</h3>
+            <p>La boquilla deposita el material en capas mientras los modelos se construyen sobre la base.</p>
+          </div>
+        </article>
+      </div>
     </section>
   </main>
   <footer><div class="wrap">3DScracth · Proyecto escolar ficticio de impresión 3D.</div></footer>
